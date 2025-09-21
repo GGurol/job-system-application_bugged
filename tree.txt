@@ -1,0 +1,101 @@
+.
+├── backend
+│   ├── Dockerfile
+│   ├── middleware
+│   │   └── security.js
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── server.js
+│   └── uploads
+├── bot
+│   ├── auto-apply-bot.js
+│   ├── bot-service.js
+│   └── package.json
+├── database
+│   └── init.sql
+├── docker-compose.yml
+├── frontend
+│   ├── components.json
+│   ├── Dockerfile
+│   ├── next.config.js
+│   ├── next-env.d.ts
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── postcss.config.js
+│   ├── public
+│   │   ├── favicon.ico
+│   │   └── favicon.svg
+│   ├── src
+│   │   ├── app
+│   │   │   ├── admin
+│   │   │   │   └── page.tsx
+│   │   │   ├── applications
+│   │   │   │   └── page.tsx
+│   │   │   ├── dashboard
+│   │   │   │   └── page.tsx
+│   │   │   ├── globals.css
+│   │   │   ├── layout.tsx
+│   │   │   ├── login
+│   │   │   │   └── page.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── profile
+│   │   │   │   └── page.tsx
+│   │   │   ├── register
+│   │   │   │   └── page.tsx
+│   │   │   └── swipe
+│   │   │       └── page.tsx
+│   │   ├── components
+│   │   │   ├── FileUpload.tsx
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── JobCard.tsx
+│   │   │   ├── JobSwiper.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── PublicJobs.tsx
+│   │   │   └── ui
+│   │   │       ├── button.tsx
+│   │   │       ├── card.tsx
+│   │   │       ├── dialog.tsx
+│   │   │       ├── input.tsx
+│   │   │       ├── label.tsx
+│   │   │       └── textarea.tsx
+│   │   └── lib
+│   │       ├── config.ts
+│   │       └── utils.ts
+│   ├── tailwind.config.js
+│   └── tsconfig.json
+├── LICENSE.md
+├── next-shadcn-app
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public
+│   │   └── favicon.ico
+│   ├── README.md
+│   ├── src
+│   │   ├── app
+│   │   │   └── page.tsx
+│   │   ├── components
+│   │   │   ├── Button.tsx
+│   │   │   ├── Card.tsx
+│   │   │   ├── index.ts
+│   │   │   └── Input.tsx
+│   │   ├── styles
+│   │   │   └── globals.css
+│   │   └── types
+│   │       └── index.ts
+│   ├── tailwind.config.ts
+│   └── tsconfig.json
+├── package.json
+├── package-lock.json
+├── README.md
+├── scraper
+│   ├── package.json
+│   ├── scrapers
+│   │   └── indeed-scraper.js
+│   └── scraper-service.js
+├── scripts
+│   ├── backup-database.sh
+│   ├── seed-database.sql
+│   └── setup.sh
+└── tree.txt
+
+30 directories, 69 files

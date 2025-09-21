@@ -1,0 +1,15 @@
+{
+  "name": "job-app-bot",
+  "version": "1.0.0",
+  "main": "bot-service.js",
+  "scripts": {
+    "start": "node bot-service.js",
+    "postinstall": "playwright install --with-deps chromium"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "playwright": "^1.40.0",
+    "pg": "^8.11.0",
+    "dotenv": "^16.3.1"
+  }
+}

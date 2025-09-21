@@ -1,0 +1,58 @@
+services:
+  db:
+    image: postgres:14
+    container_name: job-app-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      # CORRECTED: The username is now hardcoded as it cannot be read from .env here.
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: . # Use the root directory as the build context
+      dockerfile: backend/Dockerfile # Specify the path to the Dockerfile
+    container_name: job-app-backend
+    command: sh -c "npm install && npm run dev"
+    restart: on-failure
+    ports:
+      - "3001:3001"
+    env_file: .env
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+      - ./scraper:/usr/src/scraper # Mount scraper for the backend to use
+      - ./bot:/usr/src/bot # Mount bot for the backend to use
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: . # Use the root directory as the build context
+      dockerfile: frontend/Dockerfile # Specify the path to the Dockerfile
+    container_name: job-app-frontend
+    command: sh -c "npm install && npm run dev"
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file: .env
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
